@@ -44,3 +44,33 @@ class FlstVar:
         var_multiple: str
         """
         return self.var_single if self.anz_flst == 1 else self.var_multiple
+
+def decode_uuids(internal_uuid: str):
+    return uuid.UUID(internal_uuid[1:]).bytes.decode()
+
+def excel_export(df_ausgabe: DataFrame, doc_name: str, vnr: LF.VNR, output_dir: str | Path, index: bool = False, float_format='%.2f') -> None:
+
+    filename = fr'{output_dir}\{doc_name}_{vnr}_{datetime.now().strftime("%d%m%y_%H%M%S")}{"_LEER" if df_ausgabe.empty else ""}.xlsx'
+    sheet_name = f'{doc_name}_{vnr}'
+
+    if not output_dir.exists():
+        output_dir.mkdir()
+
+    # https://stackoverflow.com/a/72464621
+    with ExcelWriter(path=filename, engine='xlsxwriter') as writer:
+        df_ausgabe.to_excel(writer, sheet_name=sheet_name, index=index, float_format=float_format)
+        try:
+            for column in df_ausgabe:
+                column_length = max(df_ausgabe[column].astype(str).map(len).max(), len(column)) + 4
+                col_idx = df_ausgabe.columns.get_loc(column)
+                writer.sheets[sheet_name].set_column(col_idx, col_idx, column_length)
+
+        except ValueError:
+            pass
+    timer(fr'Erzeuge {filename}')
+
+def convert_uuid_in_df(df: DataFrame, fields: list) -> DataFrame:
+    df_mod = df.copy()
+    for value in fields:
+        df_mod[value] = df[value].map(decode_uuids)
+    return df_mod
