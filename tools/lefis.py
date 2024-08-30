@@ -5,7 +5,7 @@ from pathlib import Path
 
 from pandas import DataFrame, ExcelWriter
 
-from debugging import timer
+from tools.debugging import timer
 
 
 @dataclass
@@ -30,10 +30,10 @@ class AnredeVar:
             '2000': self.var_maennlich,
             '3000': self.var_maennlich
         }
-        try:
-            return self.var[self.pers_anr]
-        except KeyError:
-            return f'{self.var_weiblich} / {self.var_maennlich} / {self.var_gruppe}'
+
+    def rv(self) -> str:
+        """return value"""
+        return self.var[self.pers_anr] if self.pers_anr else f'{self.var_weiblich} / {self.var_maennlich} / {self.var_gruppe}'
 
 
 @dataclass
@@ -41,15 +41,9 @@ class FlstVar:
     anz_flst: int
     var_single: str
     var_multiple: str
-    var: dict[str, str] = field(init=False)
 
-    def __post_init__(self):
-        """
-        Wählt den richtigen Text anhand der Fluirstuecksanzahl
-        anz_flst: int
-        var_single: str
-        var_multiple: str
-        """
+    def rv(self):
+        """return value"""
         return self.var_single if self.anz_flst == 1 else self.var_multiple
 
 

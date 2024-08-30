@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: mo_toolbox
+Version: 0.1.1
+Summary: Private Toolsammlung
+Home-page: http://10.195.64.254:81/mombrei/mo_toolbox.git
+Author: Axel Mombrei
+Author-email: axel.mombrei@dlr.rlp.de
+Requires-Dist: shapely>=2.0.6
+Requires-Dist: geopandas>=1.0.1
+Requires-Dist: pandas>=2.2.2
+Requires-Dist: ttkwidgets>=0.13.0
