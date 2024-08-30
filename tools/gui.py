@@ -2,6 +2,7 @@ import re
 import tkinter as tk
 from collections import namedtuple
 from tkinter import ttk
+
 from ttkwidgets import CheckboxTreeview
 
 

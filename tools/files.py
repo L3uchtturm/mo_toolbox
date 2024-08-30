@@ -4,8 +4,8 @@ from configparser import ConfigParser
 from pathlib import Path
 from typing import Any
 
-from pandas import DataFrame
 from geopandas import GeoDataFrame
+from pandas import DataFrame
 
 
 #  Pandas / GeoPandas

@@ -5,7 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c33c9d5f-cef7-4601-a1de-70b033583e82" name="Changes" comment="first commit">
-      <change beforePath="$PROJECT_DIR$/enums.py" beforeDir="false" afterPath="$PROJECT_DIR$/enums.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/debugging.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/debugging.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/enums.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/enums.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/files.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gui.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/gui.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lefis.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/lefis.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/string_editing.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/string_editing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vermessung.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/vermessung.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +26,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="Setup Script" />
       </list>
     </option>
   </component>
@@ -33,14 +44,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.lefis.executor&quot;: &quot;Run&quot;,
-    &quot;Python.string_editing.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.lefis.executor": "Run",
+    "Python.string_editing.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "ignore.virus.scanning.warn.message": "true",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\mombrei.000\PycharmProjects\mo_toolbox" />
+      <recent name="C:\Users\mombrei.000\PycharmProjects\mo_toolbox\tools" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -73,7 +91,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724996086247</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="first commit">
+      <option name="closed" value="true" />
+      <created>1724996513275</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1724996513275</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
