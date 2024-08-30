@@ -1,4 +1,7 @@
-from datetime import datetime, timezone
+from datetime import datetime
+
+import pandas
+from pytz import timezone
 
 
 def rfn(number: int | float | str, k_divider: str = '.', f_divider: str = ',', round_float: int = 2) -> str:
@@ -27,12 +30,16 @@ def rfn(number: int | float | str, k_divider: str = '.', f_divider: str = ',', r
     return num_str
 
 
-def convert_utc_to_cet(timestring, _format='%d.%m.%Y'):
+def convert_utc_to_cet(timestring: pandas.Timestamp, _format='%d.%m.%Y') -> str:
     """
     Zeitangaben sind in der GDB als Datetimefelder in UTC gespeichert.
     Das führt dazu, dass Geburtsdaten die in CET erfasst sind falsch angezeigt werden.
     Eingabe 01.01.2022 -> So wird es gespeichert 2021-12-31T23:00:00+00:00 --> das wuerde ausgegeben 31.12.2021
     """
+    try:
+        timestring = pandas.Timestamp(timestring)
+        if isinstance(timestring, pandas.Timestamp):
+            return timestring.astimezone('Europe/Helsinki').strftime(_format)
 
-    return datetime.fromisoformat(timestring).astimezone(timezone('Europe/Helsinki')).strftime(_format)
-
+    except ValueError:
+        return ''

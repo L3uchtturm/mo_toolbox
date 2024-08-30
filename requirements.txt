@@ -4,3 +4,4 @@ geopandas~=1.0.1
 setuptools~=74.0.0
 shapely~=2.0.6
 mo_toolbox~=0.1.0
+pytz~=2024.1

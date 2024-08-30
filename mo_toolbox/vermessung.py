@@ -1,4 +1,5 @@
 from pathlib import Path
+from typing import Any
 
 from geopandas import GeoSeries
 from pandas import read_excel
@@ -27,10 +28,10 @@ def flaechenkorr_utm_riliv(geometry: GeoSeries | MultiPolygon | Polygon | Geomet
     return int(round(reduced)) if round_result else reduced
 
 
-def import_gkverz_rlp() -> None:
+def import_gkverz_rlp() -> Any:
     """AX73007"""
     #  Gemarkungsverzeichnis https://lvermgeo.rlp.de/fileadmin/lvermgeo/pdf/open-data/gkverz_rlp.xlsx
-    file_path = Path().resolve()
+    file_path = Path(__file__).parent.resolve()
     pkl_file = Path(fr'{file_path}\GKVERZ_RLP.pkl').resolve()
 
     if not pkl_file.exists():

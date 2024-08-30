@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: mo_toolbox
-Version: 0.1.1.2
+Version: 0.1.1.5
 Summary: Private Toolsammlung
 Home-page: http://10.195.64.254:81/mombrei/mo_toolbox.git
 Author: Axel Mombrei
@@ -10,3 +10,4 @@ Requires-Dist: geopandas>=1.0.1
 Requires-Dist: pandas>=2.2.2
 Requires-Dist: ttkwidgets>=0.13.0
 Requires-Dist: openpyxl>=3.1.5
+Requires-Dist: pytz>=2024.1
