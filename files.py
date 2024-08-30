@@ -1,36 +1,69 @@
-def dataframe_to_excel(dataframe: GeoDataFrame | pandas.DataFrame, name: str, export_path: str = None) -> None:
-    dataframe.to_csv(fr'{export_path + "/" + name if export_path else name}.csv')
+import json
+import pickle
+from configparser import ConfigParser
+from pathlib import Path
+from typing import Any
 
-def save_pickle(file: str | Path, data) -> None:
+from pandas import DataFrame
+from geopandas import GeoDataFrame
+
+
+#  Pandas / GeoPandas
+
+def df_to_csv(df: GeoDataFrame | DataFrame, name: str, export_path: str | Path = None) -> None:
+    """
+    Creates a cvs file from a (Geo)DataFrame
+    """
+    df.to_csv(fr'{export_path + "/" + name if export_path else name}.csv')
+
+
+#  Pickle
+
+def save_pickle(file_path: str | Path, data: Any) -> None:
+    """
+    Saves Data a pickle File
+    """
     try:
-        x = open(file, 'w+')
-        x.close()
+        file = open(file_path, 'w+')
+        file.close()
     finally:
-        with open(file, 'wb') as l_obj:
-            pickle.dump(data, l_obj)
+        with open(file_path, 'wb') as file:
+            pickle.dump(data, file)
 
 
-def load_pickle(file:  str | Path) -> Any:
-    try:
-        with open(file, 'rb') as l_obj:
-            return pickle.load(l_obj)
-    except FileNotFoundError:
-        logger.exception(f'{FileNotFoundError} {file}')
+def load_pickle(file_path:  str | Path) -> Any:
+    """
+    opens a pickle file
+    """
+    with open(file_path, 'rb') as file:
+        return pickle.load(file)
 
 
-def open_json(path: Path | str) -> dict | list:
-    if path.exists():
-        with open(path, 'r', encoding='utf-8') as file:
+#  json
+def save_json(file_name: str | Path, items: list | dict) -> json:
+    """
+    Saves Data to a json file
+    """
+    with open(fr"{file_name}.json", "w+", encoding='utf-8') as file:
+        json.dump(items, file,  indent=4, ensure_ascii=True)
+
+
+def load_json(file_path: Path | str) -> dict | list:
+    """
+    opens a json file is existing, else creating an empty one
+    """
+    if file_path.exists():
+        with open(file_path, 'r', encoding='utf-8') as file:
             return json.load(file)
     else:
         return json.loads('{}')
 
 
-def save_json(file_name: str | Path, items: list | dict) -> json:
-    with open(fr"{file_name}.json", "w+", encoding='utf-8') as file:
-        json.dump(items, file,  indent=4, ensure_ascii=True)
-
+#  config
 def open_config(config_path: str | Path) -> ConfigParser:
+    """
+    returns a configparser from a .ini file
+    """
     config = ConfigParser()
     config.read_file(open(Path(config_path).resolve()))
     return config

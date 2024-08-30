@@ -1,4 +1,11 @@
+import uuid
 from dataclasses import dataclass, field
+from datetime import datetime
+from pathlib import Path
+
+from pandas import DataFrame, ExcelWriter
+
+from debugging import timer
 
 
 @dataclass
@@ -45,12 +52,21 @@ class FlstVar:
         """
         return self.var_single if self.anz_flst == 1 else self.var_multiple
 
-def decode_uuids(internal_uuid: str):
+
+def decode_uuids(internal_uuid: str) -> str:
     return uuid.UUID(internal_uuid[1:]).bytes.decode()
 
-def excel_export(df_ausgabe: DataFrame, doc_name: str, vnr: LF.VNR, output_dir: str | Path, index: bool = False, float_format='%.2f') -> None:
 
-    filename = fr'{output_dir}\{doc_name}_{vnr}_{datetime.now().strftime("%d%m%y_%H%M%S")}{"_LEER" if df_ausgabe.empty else ""}.xlsx'
+def excel_export(df_ausgabe: DataFrame,
+                 doc_name: str,
+                 vnr: str,
+                 output_dir: str | Path,
+                 index: bool = False,
+                 float_format='%.2f',
+                 date_format: str = "%d%m%y_%H%M%S"
+                 ) -> None:
+
+    filename = fr'{output_dir}\{doc_name}_{vnr}_{datetime.now().strftime(date_format)}{"_LEER" if df_ausgabe.empty else ""}.xlsx'
     sheet_name = f'{doc_name}_{vnr}'
 
     if not output_dir.exists():
@@ -68,6 +84,7 @@ def excel_export(df_ausgabe: DataFrame, doc_name: str, vnr: LF.VNR, output_dir: 
         except ValueError:
             pass
     timer(fr'Erzeuge {filename}')
+
 
 def convert_uuid_in_df(df: DataFrame, fields: list) -> DataFrame:
     df_mod = df.copy()

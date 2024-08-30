@@ -1,3 +1,6 @@
+from datetime import datetime, timezone
+
+
 def rfn(number: int | float | str, k_divider: str = '.', f_divider: str = ',', round_float: int = 2) -> str:
     """
     Reformat Number. Creates . 1000 divider, and round floating point numbers
@@ -23,13 +26,13 @@ def rfn(number: int | float | str, k_divider: str = '.', f_divider: str = ',', r
             num_str = num_str[::-1].replace('.', f_divider, 1)[::-1]
     return num_str
 
+
 def convert_utc_to_cet(timestring, _format='%d.%m.%Y'):
     """
     Zeitangaben sind in der GDB als Datetimefelder in UTC gespeichert.
     Das führt dazu, dass Geburtsdaten die in CET erfasst sind falsch angezeigt werden.
     Eingabe 01.01.2022 -> So wird es gespeichert 2021-12-31T23:00:00+00:00 --> das wuerde ausgegeben 31.12.2021
     """
-    try:
-        return datetime.fromisoformat(timestring).astimezone(timezone('Europe/Helsinki')).strftime(_format)
-    except:
-        return None
+
+    return datetime.fromisoformat(timestring).astimezone(timezone('Europe/Helsinki')).strftime(_format)
+

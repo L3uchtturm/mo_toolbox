@@ -1,9 +1,11 @@
 import re
 import tkinter as tk
+from collections import namedtuple
 from tkinter import ttk
+from ttkwidgets import CheckboxTreeview
 
 
-def return_var_name_without_counter(var):
+def return_var_name_without_counter(var) -> str:
     var_name = re.match(r"\D+", str(var))[0]
     if var_name[-1] == '-':
         return var_name[:-1]
@@ -11,20 +13,20 @@ def return_var_name_without_counter(var):
         return var_name
 
 
-def cb_disable_state(cb: tk.Checkbutton):
+def cb_disable_state(cb: tk.Checkbutton) -> None:
     cb.configure(state=tk.DISABLED)
 
 
-def cb_var_uncheck(cb_var: tk.IntVar):
+def cb_var_uncheck(cb_var: tk.IntVar) -> None:
     cb_var.set(0)
 
 
-def cb_disable_and_uncheck(cb: tk.Checkbutton, cb_var: tk.IntVar):
+def cb_disable_and_uncheck(cb: tk.Checkbutton, cb_var: tk.IntVar) -> None:
     cb_disable_state(cb)
     cb_var_uncheck(cb_var)
 
 
-def del_entry_default(entry: ttk.Entry, var: tk.StringVar):
+def del_entry_default(entry: ttk.Entry, var: tk.StringVar) -> None:
     var_name = return_var_name_without_counter(var=var)
     entry.bind(
         '<FocusIn>', lambda x: {
@@ -40,13 +42,7 @@ def del_entry_default(entry: ttk.Entry, var: tk.StringVar):
     )
 
 
-def update_scrollregion(canvas: tk.Canvas, frame: tk.Frame):
-    canvas.update()
-    canvas.create_window((0, 0), window=frame, anchor=tk.NW)
-    canvas.bind("<Configure>", canvas.configure(scrollregion=canvas.bbox(tk.ALL)))
-
-
-def switch_cb_state(var1: tk.IntVar, cb1: tk.Checkbutton, var2: tk.IntVar, cb2: tk.Checkbutton):
+def switch_cb_state(var1: tk.IntVar, cb1: tk.Checkbutton, var2: tk.IntVar, cb2: tk.Checkbutton) -> None:
     if var1.get() == 1:
         cb2.configure(state=tk.DISABLED)
     elif var2.get() == 1:
@@ -56,25 +52,20 @@ def switch_cb_state(var1: tk.IntVar, cb1: tk.Checkbutton, var2: tk.IntVar, cb2: 
         cb1.configure(state=tk.NORMAL)
 
 
-def set_strvar_to_none(strvar: tk.StringVar):
+def set_strvar_to_none(strvar: tk.StringVar) -> str:
     """Ersetzt StringVar value durch None wenn name=value. Verhindert das default Texte im Dokument landen"""
     if return_var_name_without_counter(strvar) == strvar.get():
-        return None
-    else:
-        return strvar.get()
+        return None if return_var_name_without_counter(strvar) == strvar.get() else strvar.get()
 
 
 def pbar_counter(progress: int | str, total: int | str) -> str:
     return f'{str(progress).zfill(len(str(total)))} / {total}'
 
 
-import tkinter as tk
-import tkinter.ttk as ttk
-from collections import namedtuple
-
-from ttkwidgets import CheckboxTreeview
-
-from gui.gui_functions import update_scrollregion
+def update_scrollregion(canvas: tk.Canvas, frame: tk.Frame) -> None:
+    canvas.update()
+    canvas.create_window((0, 0), window=frame, anchor=tk.NW)
+    canvas.bind("<Configure>", canvas.configure(scrollregion=canvas.bbox(tk.ALL)))
 
 
 class BasicScrollFrame(tk.Canvas):
@@ -89,17 +80,17 @@ class BasicScrollFrame(tk.Canvas):
 
         self.pack(fill=tk.BOTH, expand=True)
 
-    def update_scrollbar(self):
-        return update_scrollregion(canvas=self, frame=self.scrollframe)
+    def update_scrollbar(self) -> None:
+        update_scrollregion(canvas=self, frame=self.scrollframe)
 
 
 TreeViewColumn = namedtuple('TreeViewColumn', ['column', 'text', 'width', 'stretch'])
 
 
 class BasicTreeview:
-    def __init__(self, master, columns: list[TreeViewColumn], row_height: int, cb_treeview: bool = False, cb_treeview_rowheight: int = 80):
+    def __init__(self, master, columns: list[TreeViewColumn], row_height: int, cb_treeview: bool = False, cb_treeview_rowheight: int = 80) -> None:
         self.columns = columns
-        self.columns_names = [column.column for column in self.columns]
+        self.columns_names: list[str] = [column.column for column in self.columns]
         self.cb_treeview = cb_treeview
 
         if not self.cb_treeview:
@@ -126,7 +117,7 @@ class BasicTreeview:
         tree_scrollbar.pack(in_=self.tree, side=tk.RIGHT, fill=tk.Y)
         self.tree.configure(yscrollcommand=tree_scrollbar.set)
 
-    def fill_rows(self, i, row_values):
+    def fill_rows(self, i: int, row_values: str | int) -> None:
         self.tree.insert('', tk.END,
                          iid=str(i),
                          text='Index' if not self.cb_treeview else self.columns_names[0],

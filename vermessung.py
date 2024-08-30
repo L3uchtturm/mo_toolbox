@@ -1,10 +1,15 @@
-def flaechenkorr_utm_riliv(geometry: GeoSeries | MultiPolygon | Polygon | GeometryCollection) -> int:
+from geopandas import GeoSeries
+from shapely import MultiPolygon, Polygon, GeometryCollection
+
+
+def flaechenkorr_utm_riliv(geometry: GeoSeries | MultiPolygon | Polygon | GeometryCollection, round_result: bool = True, ) -> int:
     """
     Anlage 1.1 RiLiV 2020_05
+
     """
     if isinstance(geometry, GeoSeries):
         centroid_x = geometry.centroid.iloc[0].x
-    elif isinstance(geometry, MultiPolygon) or isinstance(geometry, Polygon) or isinstance(geometry, GeometryCollection):
+    elif isinstance(geometry, (MultiPolygon, Polygon, GeometryCollection)):
         centroid_x = geometry.centroid.x
     else:
         raise ValueError(type(geometry), __name__)
