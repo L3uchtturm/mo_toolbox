@@ -5,7 +5,7 @@ from pathlib import Path
 
 from pandas import DataFrame, ExcelWriter
 
-from tools.debugging import timer
+from mo_toolbox.debugging import timer
 
 
 @dataclass
@@ -26,8 +26,11 @@ class AnredeVar:
     def __post_init__(self):
         self.var = {
             '0': self.var_gruppe,
+            'Sehr geehrte Damen und Herren': self.var_gruppe,
             '1000': self.var_weiblich,
+            'Sehr geehrte Frau': self.var_weiblich,
             '2000': self.var_maennlich,
+            'Sehr geehrter Herr': self.var_maennlich,
             '3000': self.var_maennlich
         }
 
