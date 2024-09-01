@@ -2,6 +2,7 @@ import re
 import tkinter as tk
 from collections import namedtuple
 from tkinter import ttk
+from typing import Any
 
 from ttkwidgets import CheckboxTreeview
 
@@ -118,7 +119,7 @@ class BasicTreeview:
         tree_scrollbar.pack(in_=self.tree, side=tk.RIGHT, fill=tk.Y)
         self.tree.configure(yscrollcommand=tree_scrollbar.set)
 
-    def fill_rows(self, i: int, row_values: str | int) -> None:
+    def fill_rows(self, i: int, row_values: list[str | Any]) -> None:
         self.tree.insert('', tk.END,
                          iid=str(i),
                          text='Index' if not self.cb_treeview else self.columns_names[0],
@@ -126,4 +127,5 @@ class BasicTreeview:
                          tags=('oddrow',) if i % 2 else ('evenrow',))
         self.tree.tag_configure('oddrow', background='white')
         self.tree.tag_configure('evenrow', background='lightgrey')
+
 

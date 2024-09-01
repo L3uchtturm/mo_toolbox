@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c33c9d5f-cef7-4601-a1de-70b033583e82" name="Changes" comment="fixes" />
+    <list default="true" id="c33c9d5f-cef7-4601-a1de-70b033583e82" name="Changes" comment="first commit">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mo_toolbox.egg-info/SOURCES.txt" beforeDir="false" afterPath="$PROJECT_DIR$/mo_toolbox.egg-info/SOURCES.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mo_toolbox.egg-info/dependency_links.txt" beforeDir="false" afterPath="$PROJECT_DIR$/mo_toolbox.egg-info/dependency_links.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mo_toolbox.egg-info/requires.txt" beforeDir="false" afterPath="$PROJECT_DIR$/mo_toolbox.egg-info/requires.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mo_toolbox.egg-info/top_level.txt" beforeDir="false" afterPath="$PROJECT_DIR$/mo_toolbox.egg-info/top_level.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mo_toolbox/gui.py" beforeDir="false" afterPath="$PROJECT_DIR$/mo_toolbox/gui.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,7 +22,6 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
-        <option value="Setup Script" />
       </list>
     </option>
   </component>
@@ -25,33 +32,23 @@
   &quot;associatedIndex&quot;: 4
 }</component>
   <component name="ProjectId" id="2lL4gHqG4CuCboI5bWBGW4xFosm" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;Python.lefis.executor&quot;: &quot;Run&quot;,
     &quot;Python.string_editing.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\mombrei.000\PycharmProjects\mo_toolbox" />
-      <recent name="C:\Users\mombrei.000\PycharmProjects\mo_toolbox\tools" />
-    </key>
-  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-975db3bf15a3-31b6be0877a2-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.18034.82" />
+        <option value="bundled-python-sdk-8336bb23522e-31b6be0877a2-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.19072.16" />
       </set>
     </attachedChunks>
   </component>
@@ -72,55 +69,7 @@
       <option name="project" value="LOCAL" />
       <updated>1724946477387</updated>
     </task>
-    <task id="LOCAL-00002" summary="first commit">
-      <option name="closed" value="true" />
-      <created>1724996086247</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1724996086247</updated>
-    </task>
-    <task id="LOCAL-00003" summary="first commit">
-      <option name="closed" value="true" />
-      <created>1724996513275</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1724996513275</updated>
-    </task>
-    <task id="LOCAL-00004" summary="first commit">
-      <option name="closed" value="true" />
-      <created>1724998399583</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1724998399583</updated>
-    </task>
-    <task id="LOCAL-00005" summary="fixes">
-      <option name="closed" value="true" />
-      <created>1725006783996</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1725006783996</updated>
-    </task>
-    <task id="LOCAL-00006" summary="fixes">
-      <option name="closed" value="true" />
-      <created>1725011550364</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1725011550364</updated>
-    </task>
-    <task id="LOCAL-00007" summary="fixes">
-      <option name="closed" value="true" />
-      <created>1725011590618</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1725011590618</updated>
-    </task>
-    <option name="localTasksCounter" value="8" />
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -135,9 +84,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="first commit" />
-    <MESSAGE value="fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="first commit" />
   </component>
 </project>
