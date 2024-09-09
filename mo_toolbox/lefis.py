@@ -1,3 +1,4 @@
+import re
 import uuid
 from dataclasses import dataclass, field
 from datetime import datetime
@@ -88,3 +89,29 @@ def convert_uuid_in_df(df: DataFrame, fields: list) -> DataFrame:
     for value in fields:
         df_mod[value] = df[value].map(decode_uuids)
     return df_mod
+
+
+def obsolete_projekte(year: int, month: int, day: int, amt: str) -> None:
+    simmern = Path(r"\\AV-RLP\.si-fcl1_EXT22.si.dlr\lefis\LEFIS_Projekte")
+    kreuznach = Path(r"O:\LEFIS_Projekte")
+    amt = kreuznach if amt == "kh" else simmern if amt == "si" else Path()
+
+    if amt.exists():
+        counter = 0
+        for verfahren in amt.iterdir():
+            if verfahren.parts[-1].__contains__('VNR'):
+                projektordner = verfahren / 'Projekte'
+                projekte = projektordner.iterdir()
+                if projektordner.exists() and any(projekte):
+                    for file in projekte:
+                        if ((not (
+                                re.findall(pattern='(..)nderungsdienst', string=str(file))
+                                or re.findall(pattern='(.)orplanung', string=str(file))
+                                or re.findall(pattern='(.)ueffeld', string=str(file))
+                                or re.findall(pattern='pompe', string=str(file))))
+                                and datetime.fromtimestamp(file.stat().st_mtime) < datetime.strptime(f'{year}{month}{day}', "%Y%m%d")):
+                            print(file)
+                            counter += 1
+        print(f"Obsolete Projekte: {counter}")
+    else:
+        print(f"{amt} nicht erreichbar")

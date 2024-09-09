@@ -1,6 +1,6 @@
 import re
 import tkinter as tk
-from collections import namedtuple
+from dataclasses import dataclass
 from tkinter import ttk
 from typing import Any
 
@@ -86,7 +86,12 @@ class BasicScrollFrame(tk.Canvas):
         update_scrollregion(canvas=self, frame=self.scrollframe)
 
 
-TreeViewColumn = namedtuple('TreeViewColumn', ['column', 'text', 'width', 'stretch'])
+@dataclass(kw_only=True, slots=True)
+class TreeViewColumn:
+    column: str
+    text: str
+    width: int
+    stretch: bool
 
 
 class BasicTreeview:
