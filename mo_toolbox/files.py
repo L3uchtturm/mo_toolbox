@@ -31,7 +31,7 @@ def save_pickle(file_path: str | Path, data: Any) -> None:
             pickle.dump(data, file)
 
 
-def load_pickle(file_path:  str | Path) -> Any:
+def load_pickle(file_path: str | Path) -> Any:
     """
     opens a pickle file
     """
@@ -45,7 +45,7 @@ def save_json(file_name: str | Path, items: list | dict) -> json:
     Saves Data to a json file
     """
     with open(fr"{file_name}.json", "w+", encoding='utf-8') as file:
-        json.dump(items, file,  indent=4, ensure_ascii=True)
+        json.dump(items, file, indent=4, ensure_ascii=True)
 
 
 def load_json(file_path: Path | str) -> dict | list:
@@ -64,6 +64,16 @@ def open_config(config_path: str | Path) -> ConfigParser:
     """
     returns a configparser from a .ini file
     """
-    config = ConfigParser()
-    config.read_file(open(Path(config_path).resolve()))
+    with open(Path(config_path), mode='r') as config_file:
+        config = ConfigParser()
+        config.read_file(config_file)
     return config
+
+
+def write_config(config_path: [str | Path], config: ConfigParser) -> None:
+    """
+    saves a configparser to a .ini file
+    """
+    with open(Path(config_path), mode='w') as config_file:
+        config.write(config_file)
+

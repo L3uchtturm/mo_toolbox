@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c33c9d5f-cef7-4601-a1de-70b033583e82" name="Changes" comment="fixes">
+    <list default="true" id="c33c9d5f-cef7-4601-a1de-70b033583e82" name="Changes" comment="o ausfräumen ergänzt">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -122,7 +122,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725011590618</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="o ausfräumen ergänzt">
+      <option name="closed" value="true" />
+      <created>1725860681722</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1725860681722</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -140,6 +148,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="first commit" />
     <MESSAGE value="fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixes" />
+    <MESSAGE value="o ausfräumen ergänzt" />
+    <option name="LAST_COMMIT_MESSAGE" value="o ausfräumen ergänzt" />
   </component>
 </project>
