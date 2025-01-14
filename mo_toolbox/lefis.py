@@ -4,9 +4,11 @@ from dataclasses import dataclass, field
 from datetime import datetime
 from pathlib import Path
 
+import pandas as pd
 from pandas import DataFrame, ExcelWriter
 
 from mo_toolbox.debugging import timer
+from mo_toolbox.files import df_to_csv
 
 
 @dataclass
@@ -52,7 +54,9 @@ class FlstVar:
 
 
 def decode_uuids(internal_uuid: str) -> str:
-    return uuid.UUID(internal_uuid[1:]).bytes.decode()
+    if internal_uuid[0] == '#':
+        internal_uuid = internal_uuid[1:]
+    return uuid.UUID(internal_uuid).bytes.decode()
 
 
 def excel_export(df_ausgabe: DataFrame,
@@ -115,3 +119,8 @@ def obsolete_projekte(year: int, month: int, day: int, amt: str) -> None:
         print(f"Obsolete Projekte: {counter}")
     else:
         print(f"{amt} nicht erreichbar")
+
+
+if __name__ == '__main__':
+    df = pd.DataFrame(pd.read_csv(r'C:\Users\mombrei.000\Desktop\Export_Output.csv', sep=';'))
+    df_to_csv((convert_uuid_in_df(df, ['UUID'])), name='Export_Output_converted', export_path=r'C:\Users\mombrei.000\Desktop')

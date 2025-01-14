@@ -14,7 +14,7 @@ def df_to_csv(df: GeoDataFrame | DataFrame, name: str, export_path: str | Path =
     """
     Creates a cvs file from a (Geo)DataFrame
     """
-    df.to_csv(fr'{export_path + "/" + name if export_path else name}.csv')
+    df.to_csv(fr'{export_path + "/" + name if export_path else name}.csv', sep=';')
 
 
 #  Pickle
